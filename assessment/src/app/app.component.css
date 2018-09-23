@@ -1,0 +1,47 @@
+
+.header {
+  padding: 10px 16px;
+  background: #880e4f;
+  color: #f1f1f1;
+  box-sizing: border-box;
+  z-index: 1000;
+
+
+}
+.footer {
+  padding: 10px 16px;
+  background: #880e4f;
+  color: #f1f1f1;
+  box-sizing: border-box;
+  z-index: -10000;
+
+
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  height: 100px;
+  width: 100%
+}
+.sticky-footer {
+  
+  position: fixed;
+  top: 713px;
+height: 53px;
+  width: 100%;
+  z-index:100;
+
+}
+.header-logo{
+ position: absolute;
+left: 27px;
+top: 4px;
+}
+

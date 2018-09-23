@@ -1,0 +1,140 @@
+
+       <input type="text" [(ngModel)]="term" placeholder="Search" id="search" class="search-input">
+         
+<a (click)="popup()"><img src="assets/icon/plus.png" alt="add" class="icon-add"></a>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+<ul class="content">
+      <li *ngFor="let item of collection| filter:term  | paginate: { itemsPerPage: 10, currentPage: p}">
+     <mat-card class="card">
+      
+      <mat-card-content>
+         <a (click)="updateDate1(item._id)"> <img src="assets/icon/edit.png" alt="edit" style="width: 60px;height: 60px;" class="icon-edit" ></a>
+         <a (click)="delete(item._id)"> <img src="assets/icon/delete.png" alt="delete" style="width: 35px;height: 35px;" class="icon-delete"></a>
+          <p class=detail><span id="label">Name:</span>{{item.Name}}</p>
+          <p class=detail><span id="label">Aadhar Number:</span>{{item.Aadhar_no}}</p>
+          <p class=detail><span id="label">Pan number:</span>{{item.Pan}}</p>
+          <p class=detail><span id="label">Building Number:</span>{{item.Building_no}}</p>
+          <p class=detail><span id="label">Room Number:</span>{{item.Room_no}}</p>
+          
+                
+                </mat-card-content>
+              </mat-card>
+
+   <!--     </li> -->
+ </li>
+    </ul>
+</div>
+</div></div>
+
+<div class=disable-background *ngIf="pop">
+<div class="popup-form" >
+<a (click)="popup()"><img src="assets/icon/close.png" alt="close" class="icon-close" style="width: 30px;height: 30px;"></a>
+<form novalidate #signupForm="ngForm" (ngSubmit)="registerUser(signupForm.value)">
+    <div class="form-group">
+    
+    <input type="text"
+           class="form-control" placeholder="Name" name="Name" ngModel>
+  </div>
+
+  
+  <div class="form-group">
+    
+    <input type="text"
+           class="form-control" placeholder="Aadhar Number" name="Aadhar_no" ngModel>
+  </div>
+
+  <div class="form-group">
+    
+    <input type="text"
+           class="form-control" placeholder="Pan Number" name="Pan" ngModel>
+  </div>
+
+  <div class="form-group">
+    
+    <select class="form-control-drop" name="Building_no" ngModel>
+      <option value="">Please select a Building</option>
+      <option value="1">Building - 1</option>
+      <option value="2">Building - 2</option>
+      <option value="3">Building - 3</option>
+      <option value="4">Building - 4</option>
+      <option value="5">Building - 5</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    
+    <input type="text"
+           class="form-control" placeholder="Room Number" name="Room_no"  ngModel>
+  </div>
+  <button type="submit" class="submit-button btn btn-primary"> Submit</button>
+</form>
+
+</div>
+
+</div>
+
+
+
+<div class=disable-background *ngIf="popupdate">
+<div class="popup-form" >
+<a (click)="popupupdate()"><img src="assets/icon/close.png" alt="close" class="icon-close" style="width: 30px;height: 30px;"></a>
+<form novalidate #updateForm="ngForm" (ngSubmit)="updateDate(updateForm.value)">
+    <div class="form-group">
+    
+    <input type="text"
+           class="form-control" placeholder="update Name" name="Name" [(ngModel)]="tempname">
+  </div>
+
+  
+  <div class="form-group">
+    
+    <input type="text"
+           class="form-control" placeholder="Aadhar Number" name="Aadhar_no" [(ngModel)]="tempaadhar">
+  </div>
+
+  <div class="form-group">
+    
+    <input type="text"
+           class="form-control" placeholder="Pan Number" name="Pan" [(ngModel)]="temppan">
+  </div>
+
+  <div class="form-group">
+    
+    <select class="form-control-drop" name="Building_no" ngModel>
+      <option value="">Please select a Building</option>
+      <option value="1">Building - 1</option>
+      <option value="2">Building - 2</option>
+      <option value="3">Building - 3</option>
+      <option value="4">Building - 4</option>
+      <option value="5">Building - 5</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    
+    <input type="text"
+           class="form-control" placeholder="Room Number" name="Room_no"  [(ngModel)]="temproom">
+  </div>
+  <button type="submit" class="submit-button btn btn-primary"> Submit</button>
+</form>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+    <pagination-controls (pageChange)=" pageChanged($event)" class="paginate"></pagination-controls>
+
+
+
+
+
+
